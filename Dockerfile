@@ -41,7 +41,7 @@ RUN wget -q http://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-l
 RUN curl -L https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl_latest \
   && chmod +x /usr/local/bin/kubectl_latest
 
-RUN git clone https://github.com/manoelhc/k8s-simple-deployment.git
+RUN git clone https://github.com/heremias/tule.git
 
 # Install envsubst
 ENV BUILD_DEPS="gettext"  \
@@ -57,7 +57,7 @@ RUN set -x && \
 RUN helm init --client-only
 RUN helm plugin install https://github.com/databus23/helm-diff
 
-RUN cd k8s-simple-deployment
+RUN cd tule
 
 WORKDIR /work
 
